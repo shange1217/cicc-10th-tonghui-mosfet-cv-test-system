@@ -11,7 +11,7 @@
 | `hardware/bom.md` | 关键器件清单 |
 | `images/` | 架构图与界面截图 |
 | `evidence/` | pytest/CI/tag/环境/哈希证据 |
-| `competition/` | 技术文档、控制逻辑 PDF（参考材料） |
+| `competition/` | 技术文档公开摘要 |
 
 ## 阅读顺序
 

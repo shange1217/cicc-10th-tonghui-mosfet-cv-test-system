@@ -30,7 +30,7 @@
 
 - `main.py` / `core/` / `device/` / `ui/`：上位机
 - `firmware/`：STM32 Keil 工程与源码
-- `docs/competition/`：技术文档、控制逻辑 PDF
+- `docs/competition/`：技术文档公开摘要
 - `docs/hardware/`：接线、BOM、继电器表
 - `docs/measurement_report.md`：测量记录
 - `tests/`：38 项自动化测试

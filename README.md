@@ -5,7 +5,7 @@
 PyQt5 上位机 + STM32 下位机 + 继电器矩阵，控制 **TH2840E LCR + TH1992 双通道源表 + STM32 十路继电器矩阵**，完成 TK9J90E 等 MOSFET 的 Ciss / Coss / Crss / Rg / Rgs 测量。
 
 > 分赛区决赛控制逻辑：CH1=漏极、CH2=PCB +5V，栅极由 LCR 内部 bias 提供；上位机通过 SCPI 控制电桥/源表并回读；STM32 控制开关矩阵。
-> 本仓库是完整提交物：上位机、固件、接线/BOM、技术文档、测试与测量记录。
+> 本仓库包含：上位机、固件、接线/BOM、技术文档公开摘要、测试与测量记录。
 >
 > 面试/评审快速导览：[PORTFOLIO.md](PORTFOLIO.md)
 
@@ -62,7 +62,7 @@ th2840_control/
 │   ├── hardware/           接线、BOM
 │   ├── images/             架构图、界面截图
 │   ├── evidence/           pytest/CI/tag/环境/哈希证据
-│   └── competition/        技术文档、控制逻辑 PDF
+│   └── competition/        技术文档公开摘要
 ├── tests/                  38 项 pytest（无硬件可跑）
 ├── data/README.md          数据目录说明
 ├── .github/workflows/ci.yml
@@ -135,7 +135,7 @@ for stage:
 output_off()             # 复位/关窗/急停：CH1 先回 0V 再断，CH2 同理
 ```
 
-### 3.1.1 控制逻辑与 TH1992 命令（按 `控制逻辑.pdf` + 手册 V1.0.6）
+### 3.1.1 控制逻辑与 TH1992 命令（按 `docs/control_logic.md` + 手册 V1.0.6）
 
 - Ciss/Coss/Crss：CH1（漏极）**25 V**、CH2（PCB +5V）**5 V**；
 - RG(开/短)：CH1 **0 V 且输出开启**（不是高阻断开）、CH2（PCB +5V）5 V；
