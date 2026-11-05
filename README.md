@@ -82,7 +82,7 @@ th2840_control/
 - 文档：技术文档（`docs/competition/`）、测试流程、测量报告
 - 测试：`tests/`，CI 见 `.github/workflows/ci.yml`
 
-## 2. 测量模型（v1.4.1）
+## 2. 测量模型（v1.4.2）
 
 一次测量不再只留一个数字，而是 `MeasurementSpec` + `MeasurementResult`：
 
@@ -182,7 +182,7 @@ output_off()             # 复位/关窗/急停：CH1 先回 0V 再断，CH2 同
 详细任务表与验收标准见 [`docs/test_workflow.md`](docs/test_workflow.md)。
 注意：校准步骤不可暂停（时间短且涉及继电器切换），暂停按钮只在测量步骤可用。
 
-### 3.4 功能边界（v1.4.1）
+### 3.4 功能边界（v1.4.2）
 
 - 本系统只做**固定偏置点**的五参数测量：Ciss/Coss/Crss 用 Vd=25 V、Vg=0 V；Rg/Rgs 用 Vd=0 V、Vg=0 V。
 - **不提供 Vds 阶梯扫描 / CV 曲线绘制**；该功能已取消，原 CV 面板已删除。
@@ -258,7 +258,7 @@ pytest
 - [`docs/evidence/pytest-collect.txt`](docs/evidence/pytest-collect.txt)：按文件统计用例数；
 - [`docs/evidence/test-inventory.md`](docs/evidence/test-inventory.md)：文件 → 覆盖内容 → 需求；
 - [`docs/evidence/pytest.txt`](docs/evidence/pytest.txt)：本地 `pytest` 38 passed；CI 配置见 `.github/workflows/ci.yml`，未公开前不引用运行 URL；
-- [`docs/evidence/git-info.txt`](docs/evidence/git-info.txt)：commit `6367065`、tag `v1.4.1`；
+- [`docs/evidence/git-info.txt`](docs/evidence/git-info.txt)：tag `v1.4.2`（干净历史）；
 - [`docs/evidence/environment.txt`](docs/evidence/environment.txt)：Python/PyQt5/pyserial 版本。
 
 完整说明见 [`docs/evidence/README.md`](docs/evidence/README.md)。

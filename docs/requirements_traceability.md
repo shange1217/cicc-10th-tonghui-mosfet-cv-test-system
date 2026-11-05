@@ -60,7 +60,7 @@
 | 测试分布 | `docs/evidence/pytest-collect.txt`、`test-inventory.md` |
 | 38 个函数名 | `docs/evidence/test-names.txt` |
 | 无仪器自检通过 | `docs/evidence/doctor.txt`（`MainWindow 构建成功`） |
-| 提交/标签 | `docs/evidence/git-info.txt`（`6367065`、`v1.4.1`） |
+| 提交/标签 | `docs/evidence/git-info.txt`（`v1.4.2`，干净历史） |
 | 运行环境 | `docs/evidence/environment.txt`（Python 3.14.1 / PyQt5 5.15.2 / pyserial 3.5） |
 | 关键文件哈希 | `docs/evidence/sha256sums.txt` |
 

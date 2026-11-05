@@ -4,12 +4,11 @@
 
 ## 适用范围
 
-- 代码基线：`6367065`（`v1.4.1`）
-- 标签：`v1.4.1`
-- 本地测试：当前工作树 `pytest`，**38 passed**；见 `pytest.txt`
-- CI：仓库尚未公开，**不引用 CI URL，也不把 CI 当作已完成的公开验证**；公开后再补运行记录
-- 工作树状态：**dirty**。未提交修改包括 `device/th1992.py`（docstring 去队伍编号）、`ui/control_widget.py`（默认电平 500 mV→50 mV，界面行为变化）、README/docs、恢复原 docx（Git 显示 `M`，包中不包含）、新增 `docs/evidence/`；见 `git-info.txt`
-- 因此：当前可验证结论是**本地 pytest 38 passed**；CI 未用于当前工作树。
+- 标签：`v1.4.2`（干净历史，不包含原 docx）
+- 工作树：**clean**；pytest 直接跑 tag 代码
+- 本地测试：`pytest` **38 passed**；见 `pytest.txt`
+- CI：仓库尚未公开，**不引用 CI URL**；公开并产生可访问运行记录后再补
+- 原始技术文档 docx：不在本仓库/包中；只保留公开摘要或比赛提交材料
 
 ## 文件
 
@@ -20,7 +19,7 @@
 | `test-names.txt` | 38 个测试函数名与行号 |
 | `test-inventory.md` | 测试文件 → 覆盖内容 → 对应需求 |
 | `doctor.txt` | 无仪器自检输出，含 `MainWindow 构建成功` |
-| `git-info.txt` | HEAD、tag、工作树状态、remote |
+| `git-info.txt` | tag、工作树状态、remote |
 | `environment.txt` | Python / PyQt5 / pyserial / OS 版本 |
 | `sha256sums.txt` | 关键代码、固件工程、测试、文档的 SHA256 |
 
@@ -36,4 +35,4 @@ python doctor.py
 
 - 这些是**软件层**证据：SCPI 命令序列、状态机、存储、看门狗、假设备流程；
 - 不是硬件实测证据：TH2840E/TH1992 的真实返回、CH2 接线、Rg 夹具仍需实机确认；
-- CI 尚未作为公开证据；仓库公开并产生可访问的 CI 记录后，再补 URL。
+- 公开摘要见 `docs/competition/技术文档_公开版.md`；原 docx 只保留在比赛材料中。

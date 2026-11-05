@@ -125,7 +125,7 @@ pytest
 - 测试原始输出：[`docs/evidence/pytest.txt`](docs/evidence/pytest.txt)（`38 passed`）
 - 测试清单：[`docs/evidence/test-inventory.md`](docs/evidence/test-inventory.md)
 - 本地 `pytest`：**38 passed**（当前工作树；未公开仓库不引用 CI URL）
-- commit/tag：[`docs/evidence/git-info.txt`](docs/evidence/git-info.txt)（`6367065` / `v1.4.1`）
+- commit/tag：[`docs/evidence/git-info.txt`](docs/evidence/git-info.txt)（`v1.4.2`，干净历史）
 - 环境：[`docs/evidence/environment.txt`](docs/evidence/environment.txt)
 - 哈希：[`docs/evidence/sha256sums.txt`](docs/evidence/sha256sums.txt)
 
