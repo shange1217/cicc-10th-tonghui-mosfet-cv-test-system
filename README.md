@@ -135,7 +135,7 @@ for stage:
 output_off()             # 复位/关窗/急停：CH1 先回 0V 再断，CH2 同理
 ```
 
-### 3.1.1 控制逻辑与 TH1992 命令（按 `docs/control_logic.md` + 手册 V1.0.6）
+### 3.1.1 控制逻辑与 TH1992 命令（按整理版 + 手册 V1.0.6）
 
 - Ciss/Coss/Crss：CH1（漏极）**25 V**、CH2（PCB +5V）**5 V**；
 - RG(开/短)：CH1 **0 V 且输出开启**（不是高阻断开）、CH2（PCB +5V）5 V；
