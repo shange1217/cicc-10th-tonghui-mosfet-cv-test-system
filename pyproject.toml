@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "th2840-control"
+version = "1.4.2"
+description = "TH2840E LCR 上位机 + STM32 继电器矩阵"
+requires-python = ">=3.9"
+dependencies = [
+    "PyQt5>=5.15,<6",
+    "pyserial>=3.5",
+]
+
+[project.optional-dependencies]
+theme = ["pyqtdarktheme>=0.1.7"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.setuptools]
+# 平铺布局必须显式声明，否则 setuptools 会因发现多个顶层包而拒绝安装
+packages = ["core", "device", "ui", "resource"]
+py-modules = ["main"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]

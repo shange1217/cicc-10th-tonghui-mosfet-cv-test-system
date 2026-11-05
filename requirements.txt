@@ -1,0 +1,7 @@
+# 运行时依赖
+PyQt5>=5.15,<6
+pyserial>=3.5
+
+# 可选：深色主题（发行名是 pyqtdarktheme，import 名才是 qdarktheme）
+# 未安装时 main.py 会自动回退到 Fusion 调色板
+pyqtdarktheme>=0.1.7

@@ -1,0 +1,17 @@
+Python : 3.14.1 | python.exe
+项目目录: <repo>
+
+[OK]   PyQt5 
+[OK]   serial 3.5
+[OK]   qdarktheme（可选主题）
+
+[OK]   core/measurement.py
+[OK]   core/scpi.py
+[OK]   device/th2840.py
+[OK]   ui/mainwindow.py
+[OK]   resource/qss/industrial.qss
+
+尝试构建主窗口（offscreen，不会弹窗）...
+[OK]   MainWindow 构建成功
+
+结果：通过。若仍然无法启动，请把本页完整输出发我。

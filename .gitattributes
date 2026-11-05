@@ -1,0 +1,23 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.bat text eol=crlf
+*.sh text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.s text eol=lf
+*.pdf binary
+*.docx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+
+# GitHub Linguist: 厂家 SPL/启动文件不计入本项目主语言
+firmware/Library/** linguist-vendored
+firmware/Start/** linguist-vendored
+docs/** linguist-documentation

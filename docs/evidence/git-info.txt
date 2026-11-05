@@ -1,0 +1,23 @@
+6367065ced7bd0cc8f8f435a2328a096800d43fc
+v1.4.1
+M .gitattributes
+ M PORTFOLIO.md
+ M README.md
+ M device/th1992.py
+ M docs/README.md
+ M docs/competition/README.md
+ M "docs/competition/\346\212\200\346\234\257\346\226\207\346\241\243_CICC1006571.docx"
+ M docs/hardware/bom.md
+ M docs/hardware/wiring.md
+ M docs/images/architecture.svg
+ M docs/images/ui_main.png
+ M docs/images/ui_results.png
+ M docs/measurement_report.md
+ M docs/relay_truth_table.md
+ M docs/requirements_traceability.md
+ M firmware/README.md
+ M ui/control_widget.py
+?? docs/evidence/
+origin	https://github.com/shange1217/cicc-10th-tonghui-mosfet-cv-test-system.git (fetch)
+origin	https://github.com/shange1217/cicc-10th-tonghui-mosfet-cv-test-system.git (push)
+6367065ced7bd0cc8f8f435a2328a096800d43fc 2026-11-05T23:23:07+08:00 v1.4.1: add portfolio, screenshots, sanitized docs for public release

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#334155"/>
+    </marker>
+    <style>
+      .b { rx: 10; ry: 10; stroke-width: 2; }
+      .title { font: 700 24px "Microsoft YaHei","Noto Sans CJK SC",sans-serif; fill:#0f172a; }
+      .sub { font: 14px "Microsoft YaHei","Noto Sans CJK SC",sans-serif; fill:#475569; }
+      .h { font: 700 18px "Microsoft YaHei","Noto Sans CJK SC",sans-serif; fill:#0f172a; }
+      .t { font: 14px "Microsoft YaHei","Noto Sans CJK SC",sans-serif; fill:#1e293b; }
+      .s { font: 12px "Microsoft YaHei","Noto Sans CJK SC",sans-serif; fill:#475569; }
+      .l { stroke:#334155; stroke-width:2; fill:none; marker-end:url(#a); }
+      .d { stroke:#64748b; stroke-width:2; fill:none; stroke-dasharray:7 5; marker-end:url(#a); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="780" fill="#f8fafc"/>
+  <text x="40" y="38" class="title">MOSFET C-V 测试系统架构</text>
+  <text x="40" y="62" class="sub">PyQt5 上位机 · TH2840E 电桥 · TH1992 源表 · STM32 十路继电器矩阵</text>
+
+  <!-- PC -->
+  <rect x="450" y="40" width="300" height="90" class="b" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="470" y="70" class="h">PC 上位机（PyQt5）</text>
+  <text x="470" y="94" class="t">8 步流程 / 结果表 / SQLite+CSV</text>
+  <text x="470" y="116" class="s">SCPI 控制 + 数据回读</text>
+
+  <!-- LCR -->
+  <rect x="70" y="210" width="330" height="140" class="b" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="90" y="242" class="h">TH2840E 精密 LCR</text>
+  <text x="90" y="268" class="t">1 MHz，AC 50 mV</text>
+  <text x="90" y="292" class="t">Hp/Hc/Lp/Lc → LCR_H / LCR_L</text>
+  <text x="90" y="316" class="s">内部 bias 提供栅极 Vg=0 V</text>
+
+  <!-- SMU -->
+  <rect x="800" y="210" width="330" height="140" class="b" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="820" y="242" class="h">TH1992 双通道源表</text>
+  <text x="820" y="268" class="t">CH1 = 漏极 DC_H，0~100 V</text>
+  <text x="820" y="292" class="t">CH2 = PCB +5 V</text>
+  <text x="820" y="316" class="s">串口 NL(0x0A)，115200</text>
+
+  <!-- Relay -->
+  <rect x="430" y="430" width="340" height="100" class="b" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="450" y="462" class="h">继电器矩阵 K1–K10</text>
+  <text x="450" y="488" class="t">CISS / COSS / CRSS / RGOPEN / RGSHORT</text>
+  <text x="450" y="512" class="s">ULN2803 驱动；COSS 的 K6 必须闭合</text>
+
+  <!-- STM32 -->
+  <rect x="70" y="610" width="330" height="90" class="b" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="90" y="640" class="h">STM32F103C8</text>
+  <text x="90" y="664" class="t">USART 115200，命令解析</text>
+  <text x="90" y="686" class="s">relay_control.c / usart_comm.c</text>
+
+  <!-- DUT -->
+  <rect x="800" y="610" width="330" height="90" class="b" fill="#f1f5f9" stroke="#475569"/>
+  <text x="820" y="640" class="h">DUT：TK9J90E</text>
+  <text x="820" y="664" class="t">G / D / S 三端</text>
+  <text x="820" y="686" class="s">夹具 + 隔直/限流/保护</text>
+
+  <!-- arrows -->
+  <path d="M520 130 L235 210" class="l"/>
+  <text x="300" y="168" class="s">RS232 / SCPI</text>
+
+  <path d="M680 130 L965 210" class="l"/>
+  <text x="795" y="168" class="s">RS232 / SCPI</text>
+
+  <path d="M235 350 L500 430" class="l"/>
+  <text x="300" y="400" class="s">LCR_H / LCR_L</text>
+
+  <path d="M965 350 L700 430" class="l"/>
+  <text x="820" y="400" class="s">CH1 / CH2</text>
+
+  <path d="M235 610 L500 530" class="l"/>
+  <text x="300" y="580" class="s">USART</text>
+
+  <path d="M770 480 L800 655" class="l"/>
+  <text x="700" y="590" class="s">K1–K10</text>
+
+  <!-- LCR bias, routed below all boxes -->
+  <path d="M120 350 L40 350 L40 740 L965 740 L965 700" class="d"/>
+  <text x="380" y="760" class="s">LCR 内部 bias（栅极 Vg=0 V）</text>
+
+  <text x="40" y="788" class="s">注：省略隔直电容、限流电阻、保护地与屏蔽；接线以 docs/hardware/wiring.md 为准。</text>
+</svg>

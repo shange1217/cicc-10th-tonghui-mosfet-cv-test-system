@@ -1,0 +1,4 @@
+python 3.14.1 (tags/v3.14.1:57e0d17, Dec  2 2025, 14:05:07) [MSC v.1944 64 bit (AMD64)]
+platform Windows-11-10.0.26300-SP0
+PyQt5 5.15.2
+pyserial 3.5

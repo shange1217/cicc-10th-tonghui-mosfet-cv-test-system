@@ -1,0 +1,26 @@
+diff --git a/device/th1992.py b/device/th1992.py
+index 9d53e76..0a1d85a 100644
+--- a/device/th1992.py
++++ b/device/th1992.py
+@@ -2,7 +2,7 @@
+ """
+ TH1992 双通道源表。
+ 
+-按分赛区决赛《控制逻辑》与技术文档（CICC1006571）：
++按分赛区决赛《控制逻辑》与技术文档（CICC 团队）：
+ - CH1 = DC_H = MOSFET 漏极电压（0~100 V）
+ - CH2 = +5 V = PCB / 继电器板供电
+ 栅极偏置由 LCR 内部直流偏置源（BIAS:VOLT）提供，不接 TH1992。
+diff --git a/ui/control_widget.py b/ui/control_widget.py
+index befab7e..f655159 100644
+--- a/ui/control_widget.py
++++ b/ui/control_widget.py
+@@ -65,7 +65,7 @@ class ControlWidget(QWidget):
+         grid.addWidget(lbl_freq, row, 1); row += 1
+ 
+         for lbl, items, default, key in [
+-            ("电平", ["50mV","100mV","200mV","500mV","1V","2V"], "500mV", "volt"),
++            ("电平", ["50mV","100mV","200mV","500mV","1V","2V"], "50mV", "volt"),
+             ("偏置", None, None, "bias"),
+             ("速度", ["FAST","MEDIUM","SLOW"], "FAST", "speed"),
+             ("量程", ["AUTO"], "AUTO", "range"),

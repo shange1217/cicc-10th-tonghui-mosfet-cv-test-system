@@ -1,0 +1,45 @@
+/* resource/qss/industrial.qss
+   工业风暗色主题 — 用于 MOS C-V Automatic Test System */
+
+QMainWindow { background-color: #1c1e1f; }
+QGroupBox {
+    font-size: 11px; font-weight: bold;
+    border: 1px solid #3a3d3f; border-radius: 0px;
+    margin-top: 10px; padding-top: 12px; color: #a8abae;
+}
+QGroupBox::title {
+    subcontrol-origin: margin; left: 10px; padding: 0 6px; color: #6a9d7c;
+}
+QLabel { color: #9ca3a8; font-size: 10px; }
+QPushButton {
+    background-color: #2a2d2f; border: 1px solid #3a3d3f; border-radius: 0px;
+    padding: 3px 8px; color: #c0c3c5; font-size: 10px; font-weight: bold;
+    min-height: 22px;
+}
+QPushButton:hover { background-color: #36393b; border-color: #5a6d5c; }
+QPushButton:pressed { background-color: #1a3a2a; }
+QPushButton:disabled { background-color: #1a1c1d; color: #505355; }
+QDoubleSpinBox, QSpinBox, QComboBox {
+    background-color: #1c1e1f; border: 1px solid #3a3d3f; border-radius: 0px;
+    padding: 2px 5px; color: #b8c0a8; font-size: 10px; font-weight: bold;
+}
+QLineEdit {
+    background-color: #1c1e1f; border: 1px solid #3a3d3f; border-radius: 0px;
+    padding: 3px 6px; color: #c0c3c5; font-size: 10px;
+}
+QPlainTextEdit {
+    background-color: #161819; border: 1px solid #2a2d2f; border-radius: 0px;
+    color: #889088; font-family: "Consolas", "Courier New", monospace; font-size: 10px;
+}
+QCheckBox { color: #9ca3a8; font-size: 10px; }
+QCheckBox::indicator { width: 14px; height: 14px; }
+QComboBox QAbstractItemView {
+    background-color: #1c1e1f; border: 1px solid #3a3d3f; border-radius: 0px;
+    color: #c0c3c5; font-size: 10px; selection-background-color: #2a4a2a;
+}
+QScrollArea { border: none; background-color: transparent; }
+QSplitter::handle { background-color: #2a2d2f; width: 1px; height: 1px; }
+QToolTip {
+    background-color: #2a2d2f; color: #c0c3c5; border: 1px solid #4a4d4f;
+    font-size: 10px; padding: 2px;
+}
