@@ -10,7 +10,7 @@
 | `hardware/wiring.md` | 通道定义、LCR 接口、继电器板供电、安全 |
 | `hardware/bom.md` | 关键器件清单 |
 | `images/` | 架构图与界面截图 |
-| `evidence/` | pytest/CI/tag/环境/哈希证据 |
+| `evidence/` | pytest/tag/环境/哈希/环境/哈希证据 |
 | `competition/` | 技术文档公开摘要 |
 
 ## 阅读顺序

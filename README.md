@@ -61,7 +61,7 @@ th2840_control/
 │   ├── measurement_report.md
 │   ├── hardware/           接线、BOM
 │   ├── images/             架构图、界面截图
-│   ├── evidence/           pytest/CI/tag/环境/哈希证据
+│   ├── evidence/           pytest/tag/环境/哈希/环境/哈希证据
 │   └── competition/        技术文档公开摘要
 ├── tests/                  38 项 pytest（无硬件可跑）
 ├── data/README.md          数据目录说明
