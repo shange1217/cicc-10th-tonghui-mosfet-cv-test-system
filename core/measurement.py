@@ -1,8 +1,7 @@
 # core/measurement.py
 """测量条件与重复性统计。
 
-目的：让每条结果都带“在什么条件下测的、采了多少点、离散度多大”，
-而不是只留一个数字。CSV 字段与 `MeasurementResult.to_row()` 一一对应。
+目的：记录每条结果的测量条件、采样点数与离散度。CSV 字段与 `MeasurementResult.to_row()` 一一对应。
 
 单位约定：电容 pF、电阻/阻抗 Ω、频率 Hz、电压 V。
 """

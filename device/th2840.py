@@ -56,7 +56,7 @@ class TH2840(SerialDevice):
 
     # -- 身份与补偿状态 ---------------------------------------------------
     def identify(self) -> str:
-        """读取 *IDN?，确认串口连的是 LCR 而不是别的设备。"""
+        """读取 *IDN?，确认串口连接的是 TH2840E LCR。"""
         return self.query_scpi(TH2840_SCPI.IDN)
 
     def correction_status(self) -> tuple[str, str]:

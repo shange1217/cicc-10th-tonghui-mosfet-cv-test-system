@@ -96,7 +96,7 @@ th2840_control/
 
 ## 2. 测量模型（v1.4.2）
 
-一次测量不再只留一个数字，而是 `MeasurementSpec` + `MeasurementResult`：
+一次测量记录测量条件与完整结果：
 
 - **条件**：功能（CPD/ZTD）、频率、AC 电平、Vg（LCR bias）、Vd（TH1992 CH1）、继电器状态、备注；
 - **统计**：n、中位数、均值、总体标准差、最小/最大、极差百分比；
