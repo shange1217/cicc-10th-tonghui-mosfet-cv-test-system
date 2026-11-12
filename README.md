@@ -110,7 +110,7 @@ timestamp,param,unit,secondary_median,secondary_unit,n,median,mean,std,
 min,max,spread_pct,freq_hz,ac_level_v,gate_v,drain_v,relay,function,raw_values
 ```
 
-文件保存到桌面 `mos_YYYYmmdd_HHMMSS.csv`。偏置来源固定：
+CSV 文件写入桌面，命名格式为 `mos_YYYYmmdd_HHMMSS.csv`。偏置来源固定：
 
 - **Vg**：LCR 内部 DC bias（`BIAS:VOLT`），当前给 0 V；**不是 TH1992**；
 - **Vd**：TH1992 **CH1（DC_H）**，0~100 V；
@@ -151,8 +151,8 @@ output_off()             # 复位/关窗/急停：CH1 先回 0V 再断，CH2 同
 
 - Ciss/Coss/Crss：CH1（漏极）**25 V**、CH2（PCB +5V）**5 V**；
 - RG(开/短)：CH1 **0 V 且输出开启**（不是高阻断开）、CH2（PCB +5V）5 V；
-- 时序：**先切继电器，再开电源；先关电源，再切继电器**；
-- 复位：两个通道先回 0 V，再断开，最后继电器回开路；
+- 时序要求：继电器先切换，电源后开启；电源先关闭，继电器后切换；
+- 复位流程：两个通道回 0 V 后断开，最后继电器回到开路；
 - TH1992 串口结束符是 **NL(0x0A)**，不是 CRLF；输出开关命令是 `OUTP1:STAT ON/OFF`；
 - 详细表见 [`docs/control_logic.md`](docs/control_logic.md)。
 
@@ -165,7 +165,7 @@ output_off()             # 复位/关窗/急停：CH1 先回 0V 再断，CH2 同
 
 - `runs`：时间、类型、操作员、器件号、校准号、温湿度、状态；
 - `measurements`：条件、统计量、原始点；
-- CSV 仍保存到桌面，但改为从数据库导出，保证“屏幕上的”和“落盘的”是同一份数据。
+- CSV 文件仍写入桌面，但改为从数据库导出，保证“屏幕上的”和“落盘的”是同一份数据。
 
 运行信息从环境变量读取，避免改 UI：
 
@@ -192,7 +192,7 @@ output_off()             # 复位/关窗/急停：CH1 先回 0V 再断，CH2 同
 - **状态机**：`idle/preflight/running/paused/stopping/error/done`，实现见 `core/tasks.py`。
 
 详细任务表与验收标准见 [`docs/test_workflow.md`](docs/test_workflow.md)。
-注意：校准步骤不可暂停（时间短且涉及继电器切换），暂停按钮只在测量步骤可用。
+校准步骤不支持暂停（时间短且涉及继电器切换）；暂停功能仅适用于测量步骤。
 
 ### 3.4 功能边界（v1.4.2）
 
@@ -202,11 +202,11 @@ output_off()             # 复位/关窗/急停：CH1 先回 0V 再断，CH2 同
 
 ### 3.5 敏感信息
 
-不要提交 `.env`、密钥、证书、个人绝对路径或串口白名单。运行参数用环境变量传入（`MOS_OPERATOR`、`MOS_DEVICE_SN` 等），仓库只保留无密钥的默认值。
+仓库不包含 `.env`、密钥、证书、个人绝对路径或串口白名单。运行参数通过环境变量传入（`MOS_OPERATOR`、`MOS_DEVICE_SN` 等），仓库仅保留无密钥的默认值。
 
 ## 4. 安装与运行
 
-> 注意发行名：`PyQt5`、`pyserial`、可选的 `pyqtdarktheme`（import 名才是 `qdarktheme`）。
+> 依赖发行名与 import 名存在差异：`PyQt5`、`pyserial`、可选的 `pyqtdarktheme`（import 名为 `qdarktheme`）。
 > 如果 pip 报 `No matching distribution found for qdarktheme`，说明用的是旧版 requirements，按本节重装即可。
 
 ```powershell
@@ -264,7 +264,7 @@ pytest
 
 ### 测试证据
 
-不要只看“38 项通过”这句话，直接看原始文件：
+测试结论可直接核对原始文件：
 
 - [`docs/evidence/pytest.txt`](docs/evidence/pytest.txt)：末行 `38 passed`；
 - [`docs/evidence/pytest-collect.txt`](docs/evidence/pytest-collect.txt)：按文件统计用例数；
@@ -281,15 +281,15 @@ pytest
 2. **两套程序未合并**：`MOS_CV_Test_System`（TH2840）与本案高度重复，尚未抽公共库。
 3. **TH1992 回显握手未实现（功能缺口）**：手册 V1.0.6 5.2.1 要求仪器每收到一个字符立即回显，主机收到回显后再发下一个；当前 `SerialDevice.send_cmd/query` 一次写整条命令，没有消费回显。短命令在 115200 下通常能工作，但长命令/高负载可能丢字符或错位；尚未实现，需要实机确认。
 4. **暂停只覆盖测量采样**：预检/校准步骤不可暂停（时间短、涉及继电器切换）；暂停时保持偏置和继电器，停止则回安全态。
-5. **通道定义需上电核对**：代码按 CH1=漏极、CH2=PCB +5 V 实现；接线前用万用表确认 CH2 确实到 PCB/继电器板供电，栅极接 LCR 内部 bias。若实际接线不是这样，不要直接上电。
+5. **通道定义需上电核对**：代码按 CH1=漏极、CH2=PCB +5 V 实现；接线前用万用表确认 CH2 确实到 PCB/继电器板供电，栅极接 LCR 内部 bias。若实际接线不符，不应直接上电。
 6. **负载校准不可用（功能缺口）**：TH2840 手册只定义 `CORR:LOAD:STAT`/`CORR:LOAD:TYPE`，没有 `CORR:LOAD` 执行命令。`CalibrationWidget.btn_load` 已禁用，`TH2840.calibrate_load()` 直接抛 `NotImplementedError`，不会下发 `CORR:LOAD`；开路/短路校准不受影响。
-7. **无硬件 deadman（安全缺口）**：上位机崩溃或 GUI 卡死时，`ConnectionWatchdog` 的 UI 定时器无法执行断电；STM32 IWDG 只复位 MCU，不会关 TH1992。漏极/PCB 输出可能保持，必须增加硬件互锁/看门狗继电器，不能把软件看门狗当唯一保护。
+7. **无硬件 deadman（安全缺口）**：上位机崩溃或 GUI 卡死时，`ConnectionWatchdog` 的 UI 定时器无法执行断电；STM32 IWDG 只复位 MCU，不会关 TH1992。漏极/PCB 输出可能保持，需要硬件互锁/看门狗继电器；软件看门狗不能作为唯一保护。
 
 ## 7. 回滚
 
 - 已初始化 git，最终版标签 `v1.4.2`；用 `git log` / `git diff` / `git checkout -- <file>` 回退；
 - 不再保留 `*.bak_*` 或整包 zip，历史版本以 git 为准；
-- 硬件改动前先打 tag，再接线上电。
+- 硬件改动前应打 tag，再接线上电。
 
 ## 8. 版本
 
